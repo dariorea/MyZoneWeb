@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux";
+}
+.container-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.aside {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    z-index: 150;
+    background-color: black;
+}
+.container-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 80px;
+
+}
+.container-img img {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    z-index: 100;
+}
+.menu {
+    width: 100%;
+    height: 80px;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+    list-style: none;
+    gap: 10px;
+    z-index: 1098;
+}
+.menu a {
+    color: rgb(206, 206, 206);
+    text-decoration: none;
+}
+.menu a:hover {
+    color: white;
+}
+.active {
+    color: white;
+    font-weight: 700;
+    font-size: 28px;
+}
+.espacio {
+    height: 80px;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titulo {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 93%;
+    padding-top: 10px;
+}
+.scroll-wrapped {
+    position: relative;       /* Para posicionar los botones dentro */
+    width: 93%;
+    display: flex;
+}
+.container-cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    overflow-x: auto;
+    color: white;
+    scrollbar-width: none;
+    gap: 15px;
+    padding: 10px 0 10px 0;
+}
+.container-cards::-webkit-scrollbar {
+    display: none;
+}
+.card img{
+    width: 220px;
+    height: 300px;
+    border-radius:10px;
+    transition: all .2s ease-in;
+    border: solid 4px black;
+}
+.card img:hover {
+    border: solid 4px white;
+}
+.card {
+    height: auto;
+}
+
+.scroll-btn {
+    z-index: 100;
+    width: 45px;
+    height: 50px;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    backdrop-filter: blur(2px);
+    border: solid 1px transparent;
+    transition: .2s all ease-in;
+}
+.scroll-btn:hover {
+    border: solid 1px white;
+    background-color: gray;
+    font-size: 27px;
+    height: 55px;
+    width: 50px;
+}
+
+.left {
+    position: absolute;
+    left: 10px;
+    top: 40%;
+}
+.right {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+}
+.container-backdrop {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    height: auto;
+    background-color: black;
+}
+.container-deback img {
+    width: 45%;
+    border-radius: 20px;
+}
+.container-deback {
+    width: 93%;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 20px 0 20px 0;
+}
+.container-deback::-webkit-scrollbar {
+    background-color: rgb(17, 17, 17);
+
+}
+.container-deback::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 5px;
+}
+.div-item {
+    flex-shrink: 0;
+    width: 400px;
+    height: 220px;
+    border-radius: 10px;
+    border: solid 4px black;
+}
+.div-item:hover {
+    border: solid 4px white;
+}
+.container-item {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 20px;
+    height: auto;
+}
+.main-item {
+    width: 990px;
+    height: 420px;
+    position: relative;
+    border-radius: 20px;
+}
+.main-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,10) 2%, transparent);
+}
+.container-item-main {
+    display: flex;
+    color: white;
+    font-size: 20px;
+    height: 400px;
+    gap: 5px;
+}
+.main-item__name {
+    width: 400px;
+    height: 420px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px 0 10px;
+}
+.main-item__name h3 {
+    font-size:50px;
+}
+.main-item__name article {
+    color: rgb(204, 204, 204);
+}
+.main-item__name a {
+    background-color: white;
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 1390px;
+    height: auto; /* o lo que quieras */
+}
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    flex-shrink: 0;
+    width: 100%; /* cada div ocupa toda la pantalla */
+    height: 420px;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}

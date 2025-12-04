@@ -1,0 +1,2 @@
+###
+GET http://localhost:3000/search/search-ia?description=pelicula%20de%20robos%20y%20autos

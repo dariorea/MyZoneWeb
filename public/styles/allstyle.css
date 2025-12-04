@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux";
+}
+.container-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.aside {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    z-index: 150;
+    background-color: black;
+}
+.container-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 80px;
+
+}
+.container-img img {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    z-index: 100;
+}
+.menu {
+    width: 100%;
+    height: 80px;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+    list-style: none;
+    gap: 10px;
+    z-index: 1098;
+}
+.menu a {
+    color: rgb(206, 206, 206);
+    text-decoration: none;
+}
+.menu a:hover {
+    color: white;
+}
+.active a {
+    color: white;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+
+.container {
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    align-items: center;
+}
+
+.titulo {
+    width: 100%;
+    color: white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left:50px ;
+    background-color: black;
+}
+.container-cards {
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
+    background-color: black;
+}
+.container-cards::-webkit-scrollbar {
+    display: none;
+}
+.card {
+    color: white;
+    font-size: 20px;
+    overflow: hidden;           /* oculta lo que sobrepasa el div */
+    text-overflow: ellipsis;    /* agrega los "..." al final */
+    width: 220px;  
+    height: auto;             /* ancho fijo del div */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    background-color: black;
+}
+.card img{
+    width: 220px;
+    height: 290px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+.container-search {
+    height: 50px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: solid 1px green;
+}
+.container-search input {
+    width: 300px;
+    height: 50px;
+    font-size: 22px;
+}
+.container-search button {
+    width: 100px;
+    height: 50px;
+    font-size: 22px;
+    border: none;
+}
+.container-resultados {
+    min-width: 100%;
+    min-height: calc(100vh - 210px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: solid 1px red;
+}

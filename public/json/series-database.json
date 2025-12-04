@@ -1,0 +1,23 @@
+[
+    {
+        "id" : "239385",
+        "episodes" : [ 
+            {
+                "ep": "1",
+                "url": "//ok.ru/videoembed/9830736530049?nochat=1"
+            },
+            {
+                "ep": "2",
+                "url": "//ok.ru/videoembed/9831784712833?nochat=1"
+            },
+            {
+                "ep": "3",
+                "url": "//ok.ru/videoembed/9833693186689?nochat=1"
+            },
+            {
+                "ep": "4",
+                "url": "https://voe.sx/"
+            }
+        ]
+    }
+]
