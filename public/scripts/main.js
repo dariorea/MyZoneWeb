@@ -19,6 +19,8 @@ obtenerItem({
 
 const obtenerPeliculasTop = () => {
 	const backdropContainer = document.getElementById("popular-movies")
+	const backdropContainerd = document.getElementById("slider")
+	let count = 0
 	fetch(`${baseUrl}/movies/popular`)
 	.then(result => result.json())
 	.then(data => {
@@ -40,13 +42,41 @@ const obtenerPeliculasTop = () => {
 			enlace.appendChild(itemback)
 			containerItem.append(enlace, nameItem)
 			backdropContainer.appendChild(containerItem)
+
+			if(count<5) {
+				const containerItem = document.createElement("div")
+				containerItem.classList.add("slide")
+				const imagenBackdrop = document.createElement("div")
+				imagenBackdrop.href = `${baseUrl}/pages/movie.html?id=${item.id}`
+				imagenBackdrop.classList.add("slide-image")
+				imagenBackdrop.style.backgroundImage = `url("https://image.tmdb.org/t/p/original${item.backdrop_path}")`;
+				imagenBackdrop.style.backgroundSize = "cover";
+				imagenBackdrop.style.backgroundPosition = "center";
+				imagenBackdrop.style.backgroundRepeat = "no-repeat";
+
+				const containerNameItem = document.createElement("div")
+				containerNameItem.classList.add("slide-text")
+
+				const nameItem = document.createElement("h3")
+				nameItem.textContent = `${item.title}`
+				
+				const description = document.createElement("article")
+				description.textContent = cortarOverview(item.overview)
+
+				const verAhora = document.createElement("a")
+				verAhora.href = `${baseUrl}/pages/movie.html?id=${item.id}`
+				verAhora.textContent = `Ver Ahora`
+
+				containerNameItem.append(nameItem, description, verAhora)
+				containerItem.append(containerNameItem, imagenBackdrop)
+				backdropContainerd.appendChild(containerItem)
+				count++
+			}
 		})
 	})
 }
 const obtenerSeriesPopulares = () => {
 	const backdropContainers = document.getElementById("popular-series")
-	const backdropContainer = document.getElementById("slider")
-	let count = 0
 	fetch(`${baseUrl}/series/popular`)
 	.then(result => result.json())
 	.then(data => {
@@ -69,30 +99,6 @@ const obtenerSeriesPopulares = () => {
 			containerItem.append(enlace, nameItem)
 			backdropContainers.appendChild(containerItem)
 
-			if(count<5) {
-				const containerItem = document.createElement("div")
-				containerItem.classList.add("slide")
-				const enlace = document.createElement("a")
-				enlace.href = `${baseUrl}/pages/serie.html?id=${item.id}`
-				enlace.classList.add("main-item")
-				enlace.style.backgroundImage = `url("https://image.tmdb.org/t/p/original${item.backdrop_path}")`;
-				enlace.style.backgroundSize = "cover";
-				enlace.style.backgroundPosition = "center";
-				enlace.style.backgroundRepeat = "no-repeat";
-				const containerNameItem = document.createElement("div")
-				containerNameItem.classList.add("main-item__name")
-				const nameItem = document.createElement("h3")
-				nameItem.textContent = `${item.name}`
-				const description = document.createElement("article")
-				description.textContent = cortarOverview(item.overview)
-				const verAhora = document.createElement("a")
-				verAhora.href = `${baseUrl}/pages/serie.html?id=${item.id}`
-				verAhora.textContent = `Ver Ahora`
-				containerNameItem.append(nameItem, description, verAhora)
-				containerItem.append(containerNameItem, enlace)
-				backdropContainer.appendChild(containerItem)
-				count++
-			}
 		})
 	})
 }
