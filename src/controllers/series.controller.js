@@ -18,7 +18,7 @@ export const getAllSeries = async (req, res) => {
     const { page = 1 } = req.query; // valor por defecto: 1
 
     try {
-        const url = `https://api.themoviedb.org/3/trending/tv/day?language=es-ES&page=${page}&region=AR&api_key=${API_KEY}`;
+        const url = `https://api.themoviedb.org/3/trending/tv/day?language=es-ES&page=${page}&region=US&api_key=${API_KEY}`;
         const result = await axios.get(url);
         res.json(result.data);
     } catch (error) {

@@ -3,7 +3,7 @@ import { baseUrl } from "./config.js";
 const obtenerPeliculaID = () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
-  const itemContainer = document.querySelector(".item-container");
+  const itemContainer = document.querySelector(".item-data");
   const itemImgContainer = document.getElementById("item-img");
   const itemInfoContainer = document.getElementById("item-info");
 
@@ -11,10 +11,19 @@ const obtenerPeliculaID = () => {
     .then(result => result.json())
     .then(data => {
         console.log(data);
-        itemContainer.style.backgroundImage = `url("https://image.tmdb.org/t/p/original${data.backdrop_path}")`;
-        itemContainer.style.backgroundSize = "cover";
-        itemContainer.style.backgroundPosition = "center";
-        itemContainer.style.backgroundRepeat = "no-repeat";
+
+        itemInfoContainer.style.backgroundImage = `url("https://image.tmdb.org/t/p/original${data.backdrop_path}")`;
+        itemInfoContainer.style.backgroundSize = "cover";
+        itemInfoContainer.style.backgroundPosition = "center";
+        itemInfoContainer.style.backgroundRepeat = "no-repeat";
+
+        // const portada = document.createElement("div")
+        // portada.classList.add("portada")
+        // portada.style.backgroundImage = `url("https://image.tmdb.org/t/p/original${data.backdrop_path}")`;
+        // portada.style.backgroundSize = "cover";
+        // portada.style.backgroundPosition = "center";
+        // portada.style.backgroundRepeat = "no-repeat";
+
 
         const img = document.createElement("img");
         img.src = `https://image.tmdb.org/t/p/original${data.poster_path}`;
@@ -43,10 +52,6 @@ const obtenerPeliculaID = () => {
         const paisesText = data.production_countries.map(c => c.name).join(", ")
         paises.textContent = `Paises: ${paisesText}`
 
-        const verAhora = document.createElement("a")
-        verAhora.href = data.homepage;
-        verAhora.textContent = "Ver Ahora";
-
         const ok = document.createElement("button")
         ok.classList.add("ok-boton")
         ok.textContent = "ok"
@@ -55,7 +60,7 @@ const obtenerPeliculaID = () => {
 
         itemImgContainer.appendChild(img)
         detailContainer.append(puntuacion, duracion)
-        itemInfoContainer.append(detailContainer, verAhora ,overview, genres, paises, ok)
+        itemInfoContainer.append(detailContainer ,overview, genres, paises, ok)
     });
 };
 

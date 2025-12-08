@@ -4,7 +4,7 @@ import { baseUrl } from "./config.js";
     const obtenerSerieID = () => {
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id");
-        const itemContainer = document.querySelector(".item-container");
+        const itemContainer = document.querySelector(".item-data");
         const itemImgContainer = document.getElementById("item-img");
         const itemInfoContainer = document.getElementById("item-info");
         let count = 0
@@ -13,10 +13,10 @@ import { baseUrl } from "./config.js";
         .then(result => result.json())
         .then(data => {
             console.log(data);
-            itemContainer.style.backgroundImage = `url("https://image.tmdb.org/t/p/original${data.backdrop_path}")`;
-            itemContainer.style.backgroundSize = "cover";
-            itemContainer.style.backgroundPosition = "center";
-            itemContainer.style.backgroundRepeat = "no-repeat";
+            itemInfoContainer.style.backgroundImage = `url("https://image.tmdb.org/t/p/original${data.backdrop_path}")`;
+            itemInfoContainer.style.backgroundSize = "cover";
+            itemInfoContainer.style.backgroundPosition = "center";
+            itemInfoContainer.style.backgroundRepeat = "no-repeat";
     
             const img = document.createElement("img");
             img.src = `https://image.tmdb.org/t/p/original${data.poster_path}`;
@@ -46,9 +46,6 @@ import { baseUrl } from "./config.js";
             const paisesText = data.production_countries.map(c => c.name).join(", ")
             paises.textContent = `Paises: ${paisesText}`
     
-            const verAhora = document.createElement("a")
-            verAhora.href = data.homepage;
-            verAhora.textContent = "Ver Ahora"
             const episodesContainer = document.createElement("div")
             episodesContainer.classList.add("container-episodes")
     
@@ -67,7 +64,7 @@ import { baseUrl } from "./config.js";
     
             itemImgContainer.appendChild(img)
             detailContainer.append(puntuacion, duracion)
-            itemInfoContainer.append(title, detailContainer, verAhora ,overview, genres, paises, episodesContainer)
+            itemInfoContainer.append(title, detailContainer ,overview, genres, paises, episodesContainer)
             
             const pedirEpisodio = (id) => {
                 const episodesContainers = document.querySelector(".container-episodes")

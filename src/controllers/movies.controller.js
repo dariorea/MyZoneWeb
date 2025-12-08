@@ -40,7 +40,7 @@ export const getAllMovies = async (req, res) => {
     const { page = 1 } = req.query; // valor por defecto: 1
 
     try {
-        const url = `https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=${page}&region=AR&api_key=${process.env.TMDB_API_KEY}`;
+        const url = `https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=${page}&api_key=${process.env.TMDB_API_KEY}`;
         const result = await axios.get(url);
         const data = result.data
         res.json(data);

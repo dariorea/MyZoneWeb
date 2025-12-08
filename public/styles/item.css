@@ -2,56 +2,82 @@
     width: 100%;
     height: calc(100vh - 80px); /* restas la altura del header */
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    background-color: black;
 }
+/*
 .item-container::after { 
     margin-top: 80px;
     content: "";
     position: absolute;
-    inset: 0;                        /* ocupa todo el contenedor */
-    background-color: rgba(0, 0, 0, 0.7); /* negro con 50% de opacidad */
-    pointer-events: none;            /* deja pasar clics */
+    inset: 0;                         ocupa todo el contenedor 
+    background-color: rgba(0, 0, 0, 0.7);  negro con 50% de opacidad 
+    pointer-events: none;             deja pasar clics
 }
+*/
 .item-data {
     display: flex;
     justify-content: center;
     z-index: 100;
-    gap: 50px;
     overflow-y: auto;
-    height: 100%;
-    padding-top: 50px;
+    width: 100%;
+    gap: 50px;
+    height: calc(100vh - 80px);
+}
+.item-data::after { 
+    margin-top: 80px;
+    content: "";
+    position: absolute;
+    inset: 0;                         
+    background-color: rgba(0, 0, 0, 0.7);  
+    pointer-events: none;             
 }
 .item-data__img {
     z-index: 30;
     width: 220px;
     height: auto;
+    padding: 30px 0 0 50px;
 }
 .item-data__img img {
     width: 220px;
     height: auto;
     z-index: 100;
     border-radius: 5px;
+    z-index: 100;
 }
 .item-data__info {
-    width: 900px;
-    height: 1300px;
+    width: 100%;
+    height: auto;
     color: white;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    z-index: 200;
+    overflow-y: auto;
+    position: relative;
+    z-index: 10;
+    padding: 30px 100px 0 30px;
+
+}
+.item-data__info::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,10) 2%, transparent);
+    height: auto;
 }
 .item-data::-webkit-scrollbar {
-    z-index: 1000;
-    background-color: red;
     display: none;
 }
 
 .item-data__info h1 {
     font-size: 40px;
+    z-index: 10;
 }
 .container-detail {
     display: flex;
     gap: 20px;
+    z-index: 10;
 }
 
 .item-data__info a {
@@ -62,6 +88,10 @@
     text-decoration: none;
     font-size: 20px;
     border-radius: 5px;
+    z-index: 80;
+}
+.item-data__info em, .item-data__info p {
+    z-index: 99;
 }
 .ok-boton {
     width: 100px;
@@ -69,6 +99,7 @@
     border: none;
     border-radius: 5px;
     font-size: 20px;
+    z-index: 10;
 }
 .episode-button {
     width: 70px;
@@ -76,12 +107,22 @@
     border: none;
     font-size: 20px;
     border-radius: 5px;
+    z-index: 100;
 }
 .container-episodes {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
+.logo-titulo {
+    z-index: 199;
+}
 .logo-titulo img {
-    width: 350px;
+    width: 350px;    
+    z-index: 200;
+}
+
+.portada {
+    width: 600px;
+    height: 300px;
 }
