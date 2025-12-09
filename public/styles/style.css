@@ -24,7 +24,7 @@
     justify-content: center;
     width: 250px;
     height: 80px;
-
+    z-index: 1000;
 }
 .container-img img {
     width: 100px;

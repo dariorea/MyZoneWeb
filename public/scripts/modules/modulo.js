@@ -64,7 +64,7 @@ export const renderCard = (item, container, type = "serie") => {
 	img.alt = item.name || item.title || "Sin título";
 
 	const name = document.createElement("p");
-	name.textContent = item.name || item.title || "Sin nombre";
+	name.textContent = cortarOverview(item.name || item.title || "Sin nombre", 45)
 
 	enlace.appendChild(img);
 	div.append(enlace, name);
@@ -100,6 +100,7 @@ export const obtenerItem = ({
 			const img = document.createElement("img")
 			img.src = `${IMG_BASE}${item.poster_path}`
 			img.alt =`${item.title}`
+
 			const name = document.createElement("h3")
 			name.textContent = `${item?.title || item?.name}`
 
