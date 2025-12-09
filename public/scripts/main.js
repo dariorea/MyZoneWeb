@@ -3,7 +3,7 @@ import { obtenerItem, cortarOverview } from "./modules/modulo.js";
 
 obtenerItem({
 	containerID: "trendings",
-	endpoint: "movies/trendings",
+	endpoint: "movies/popular",
 	type: "movie"
 })
 obtenerItem({
@@ -21,11 +21,11 @@ const obtenerPeliculasTop = () => {
 	const backdropContainer = document.getElementById("popular-movies")
 	const backdropContainerd = document.getElementById("slider")
 	let count = 0
-	fetch(`${baseUrl}/movies/popular`)
+	fetch(`${baseUrl}/movies/trendings`)
 	.then(result => result.json())
 	.then(data => {
-		console.log(data)
-		data.results.forEach(item => {
+		console.log(data, "estas son las peliculas con logos")
+		data.forEach(item => {
 			const containerItem = document.createElement("div")
 			containerItem.classList.add("container-item")
 			const enlace = document.createElement("a")
@@ -57,8 +57,8 @@ const obtenerPeliculasTop = () => {
 				const containerNameItem = document.createElement("div")
 				containerNameItem.classList.add("slide-text")
 
-				const nameItem = document.createElement("h3")
-				nameItem.textContent = `${item.title}`
+				const nameItem = document.createElement("img")
+				nameItem.src = `${item.logos}`
 				
 				const description = document.createElement("article")
 				description.textContent = cortarOverview(item.overview)

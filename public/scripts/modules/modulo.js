@@ -72,7 +72,7 @@ export const renderCard = (item, container, type = "serie") => {
 }
 
 ////////////////////////////////////////////////////////////////
-export const cortarOverview = (texto, max = 250) => {
+export const cortarOverview = (texto, max = 210) => {
 	if (!texto) return "Sin descripción disponible";
 	if (texto.length <= max) return texto;
 	const recorte = texto.slice(0, max);

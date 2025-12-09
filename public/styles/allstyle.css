@@ -122,7 +122,6 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    border: solid 1px green;
 }
 .container-search input {
     width: 300px;
@@ -137,9 +136,12 @@
 }
 .container-resultados {
     min-width: 100%;
-    min-height: calc(100vh - 210px);
+    min-height: calc(100vh - 260px);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    border: solid 1px red;
+    margin-top: 50px;
+    gap: 15px;
+    justify-content: start;
+    padding: 0 50px 0 50px;
+
 }
