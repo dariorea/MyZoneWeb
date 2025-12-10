@@ -68,12 +68,15 @@ import { baseUrl } from "./config.js";
             
             const pedirEpisodio = (id) => {
                 const episodesContainers = document.querySelector(".container-episodes")
+                
                 fetch("../json/series-database.json")
                 .then(response => response.json())
                 .then(res => {
                     res.forEach(element => {
                         element.episodes.forEach(capitulo => {
                             if(id === capitulo.ep) {
+                            const videoContainer = document.createElement("div")
+                            videoContainer.classList.add("item-data__video")
                             const videoEP = document.createElement("iframe");
                             videoEP.width = "560";
                             videoEP.height = "315";
@@ -82,7 +85,8 @@ import { baseUrl } from "./config.js";
                             videoEP.allow = "autoplay";
                             videoEP.allowFullscreen = true;
                             videoEP.style.zIndex = 10000
-                            episodesContainers.appendChild(videoEP)
+                            videoContainer.appendChild(videoEP)
+                            itemInfoContainer.appendChild(videoContainer)
                             }
                         })
             
